@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "django-mobile-fork"
+name = "django-mobile"
 version = "0.1.0"
 description = "A fork of django mobile updated to work with django 4.0"
 authors = ["Yaakov Lowenstein"]
