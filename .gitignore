@@ -1,1 +1,7 @@
 .tox/
+docker-compose.yml
+Dockerfile
+Makefile
+.env
+.pre-commit-config.yaml
+.venv/
