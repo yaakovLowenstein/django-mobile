@@ -19,6 +19,9 @@ steps:
 2. The template loader takes then care of choosing the correct templates based
    on the flavour detected in the middleware.
 
+Changes In this Fork
+============
+- Updated to work with django 4.0
 
 Installation
 ============
