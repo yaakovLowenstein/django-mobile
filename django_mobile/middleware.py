@@ -129,8 +129,8 @@ class MobileDetectionMiddleware(MiddlewareMixin):
     user_agents_exception_search = "(?:%s)" % "|".join(("ipad",))
     http_accept_regex = re.compile("application/vnd\.wap\.xhtml\+xml", re.IGNORECASE)
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         user_agents_test_match = r"^(?:%s)" % "|".join(self.user_agents_test_match)
         self.user_agents_test_match_regex = re.compile(
             user_agents_test_match, re.IGNORECASE
