@@ -1,10 +1,12 @@
 import re
 
+from django.utils.deprecation import MiddlewareMixin
+
 from django_mobile import _init_flavour, flavour_storage, set_flavour
 from django_mobile.conf import settings
 
 
-class SetFlavourMiddleware(object):
+class SetFlavourMiddleware(MiddlewareMixin):
     def process_request(self, request):
         _init_flavour(request)
 
@@ -18,7 +20,7 @@ class SetFlavourMiddleware(object):
         return response
 
 
-class MobileDetectionMiddleware(object):
+class MobileDetectionMiddleware(MiddlewareMixin):
     user_agents_test_match = (
         "w3c ",
         "acs-",
@@ -128,6 +130,7 @@ class MobileDetectionMiddleware(object):
     http_accept_regex = re.compile("application/vnd\.wap\.xhtml\+xml", re.IGNORECASE)
 
     def __init__(self):
+        super().__init__()
         user_agents_test_match = r"^(?:%s)" % "|".join(self.user_agents_test_match)
         self.user_agents_test_match_regex = re.compile(
             user_agents_test_match, re.IGNORECASE
